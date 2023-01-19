@@ -4,11 +4,11 @@ import { AccountId } from 'near-sdk-js/lib/types';
 type Side = 'heads' | 'tails'
 
 function simulateCoinFlip(): Side {
-  // randomSeed creates a random string, learn more about it in the README
-  const randomString: string = near.randomSeed();
+  // randomSeed creates a random Uint8Array, learn more about it in the README
+  const random: Uint8Array = near.randomSeed();
 
   // If the last charCode is even we choose heads, otherwise tails
-  return randomString.charCodeAt(0) % 2 ? 'heads' : 'tails';
+  return random[0] % 2 ? 'heads' : 'tails';
 }
 
 
